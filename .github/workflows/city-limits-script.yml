@@ -1,4 +1,3 @@
-# .github/workflows/city-limits-script.yml
 name: Test City Limits Script
 
 on:
@@ -9,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
@@ -18,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.8' # Replace '3.1' with a version compatible with Ubuntu 24.04
+        python-version: '3.8' # Ensure this matches a compatible version
 
     - name: Install dependencies
       run: |
@@ -26,4 +25,4 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run script
-      run: python city_limits_check.py
+      run: python check_city_limits.py
